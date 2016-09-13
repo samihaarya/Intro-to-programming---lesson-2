@@ -5,9 +5,11 @@ QUIZ = ["__0__ is a computer programming language.__0__ was invented to write an
 "__0__ is a Structured language. The __1__ you create with your editor are called the __2__ files and they contain the program __2__ codes. The __2__ files for __0__ programs are typically named with the __3__ \".c\".The __2__ code written in __2__ __1__ is the human readable __2__ for your program. It needs to be \"compiled\", into machine language so that your CPU can actually execute the program as per the instructions given"]
 
 
-ANS = [['C', 'UNIX', 'extension', 'arrays'], ['C', 'language', 'Compiler', 'file'], ['C', 'file', 'source', 'extension']]
+ANS = [['c', 'unix', 'extension', 'arrays'], ['c', 'language', 'compiler', 'file'], ['c', 'file', 'source', 'extension']]
 
 def ask_level():
+# this function, ask_level doesn't take any input. it asks the user which level they want to enter till they enter one of these 3 specific
+# levels and returns the index value of that level.
 	levels= ["Easy", "Medium", "Hard"]
 	user_input= raw_input("Please select the game dificulty by typing it in\n" + "Posible choices include " + str(levels)+ ":--->> \t")
 	for index in xrange(3):
@@ -18,6 +20,7 @@ def ask_level():
 			again = ask_level()
 
 def check_answer(user_input,ans):
+# this function, check_answer checks if the user_input is the correct answer or not and pass the message to the user about their answer.
 	print ans
 	print user_input
 	if ans == user_input:
@@ -30,15 +33,18 @@ def check_answer(user_input,ans):
 		return flag
 
 def question(index_value):
+#this function, question asks the question from the user about the quiz. and gets users answer.
 	user_input = raw_input("what would come in place of __" + str(index_value)+ "__ ?\n\t")
 	return user_input
 
 def replacement(index_value,user_input,quiz):
+#the replacement function replaces the fill_in_blank with users correct answer and returns the now solved quiz.
 	blank = "__"+ str(index_value)+"__"
 	quiz= quiz.replace(blank, user_input)
 	return quiz
 
 def end_of_quiz(i):
+# this functions ends our quiz and also asks the user if they want to fill more blanks or not.
 	print "Congratulations! this level has been completed\n"
 	if i!= 2:
 		print "if you want to try next level\n"
@@ -76,5 +82,7 @@ def final_quiz(QUIZ, ANS):
 	print "Thanks for solving the quiz :-)"
 
 
-print "Welcome to the web development quiz :-)"
+print "\t\tWELCOME TO THE FILL_IN_THE_BLANKS QUIZ :-)"
+print "\n all answers are in small alphabets\n"
+print("\t\t ALL THE VERY BEST")
 final_quiz(QUIZ, ANS)
