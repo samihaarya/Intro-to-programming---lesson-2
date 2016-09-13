@@ -21,8 +21,6 @@ def ask_level():
 
 def check_answer(user_input,ans):
 # this function, check_answer checks if the user_input is the correct answer or not and pass the message to the user about their answer.
-	print ans
-	print user_input
 	if ans == user_input:
 		flag=1
 		print "Congratulations! Your answer is correct\n So far so good"
