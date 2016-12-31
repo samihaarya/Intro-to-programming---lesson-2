@@ -10,7 +10,7 @@ ANS = [['c', 'unix', 'extension', 'arrays','pointers'], ['c', 'language', 'compi
 def ask_level():
 # this function, ask_level doesn't take any input. it asks the user which level they want to enter till they enter one of these 3 specific
 # levels and returns the index value of that level.
-	levels= ["Easy", "Medium", "Hard"]
+	levels= ["easy", "medium", "hard"]
 	user_input= raw_input("Please select the game dificulty by typing it in\n" + "Posible choices include " + str(levels)+ ":--->> \t")
 	for index in xrange(0,3):
 		if  levels[index] == user_input:
@@ -58,6 +58,7 @@ def end_of_quiz(i):
 
 
 def final_quiz(QUIZ, ANS):
+#this function is the main body of this program which uses all the above functions for differnt purposes.
 	answer = 1
 	while answer == 1:
 		index=0
