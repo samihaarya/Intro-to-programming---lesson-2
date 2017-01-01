@@ -8,8 +8,9 @@ QUIZ = ["__0__ is a computer programming language.__0__ was invented to write an
 ANS = [['c', 'unix', 'extension', 'arrays','pointers'], ['c', 'language', 'compiler', 'code', 'file'], ['c', 'language', 'file', 'source', 'extension']]
 
 def ask_level():
-# this function, ask_level doesn't take any input. it asks the user which level they want to enter till they enter one of these 3 specific
-# levels and returns the index value of that level.
+# this function, ask_level doesn't take any input. It asks the user which level they want to enter, till they enter one of these 3 specific
+# levels and returns the index value of that level.And if the user enter a wrong choice the prompt appears which says your choice is wrong
+# and again asks the user for a specific level from the given levels only.
 	levels= ["easy", "medium", "hard"]
 	user_input= raw_input("Please select the game dificulty by typing it in\n" + "Posible choices include " + str(levels)+ ":--->> \t")
 	for index in xrange(0,3):
@@ -20,6 +21,7 @@ def ask_level():
 
 def check_answer(user_input,ans):
 # this function, check_answer checks if the user_input is the correct answer or not and pass the message to the user about their answer.
+# and returns the value as 1 or 0 if the answer is correct or wrong to the main function (final_quiz).
 	if ans == user_input:
 		flag=1
 		print "Congratulations! Your answer is correct\n So far so good"
@@ -30,7 +32,7 @@ def check_answer(user_input,ans):
 		return flag
 
 def question(index_value):
-#this function, question asks the question from the user about the quiz. and gets users answer.
+#this function, question asks the question from the user about the quiz. and gets users answer, which is then returned to the main function (final_quiz).
 	user_input = raw_input("\n\twhat would come in place of __" + str(index_value)+ "__ ?\t")
 	return user_input
 
@@ -40,10 +42,12 @@ def replacement(index_value,user_input,quiz):
 	quiz= quiz.replace(blank, user_input)
 	return quiz
 
-def end_of_quiz(i):
-# this functions ends our quiz and also asks the user if they want to fill more blanks or not.
+def end_of_quiz(level):
+# this functions ends our quiz when the level completed by the user is last and when the level completed by the user
+# is not last then this function also asks the user if they want to try more levels or not before ending the quiz.
+# and if the user want to try more levels, then it returns 1 to the main function (final_quiz).
 	print "Congratulations! this level has been completed\n"
-	if i!= 2:
+	if level!= 2:
 		print "if you want to try next level\n"
 		user_input = raw_input("Press Y/N for yes or no please.")
 		if user_input == 'Y' or user_input == 'y':
